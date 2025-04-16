@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Controle de Estoque Escolar</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
+</head>
+<body>
+<div class="container-login">
+    <!-- Lado esquerdo com imagem -->
+    <div class="login-img">
+        <img th:src="@{/fundo-login.jpg}" alt="Imagem de Umuarama">
+    </div>
+
+    <!-- Lado direito com o formulário -->
+    <div class="login-form">
+        <img class="logo" th:src="@{/estilo/img}" alt="Logo Umuarama">
+        <h2>Sistema de Controle de Estoque Escolar</h2>
+
+        <form th:action="@{/login}" method="post">
+            <label for="username">Login</label>
+            <input type="text" id="username" name="username" required>
+            <p class="error" th:if="${param.error == 'user'}">usuário não encontrado</p>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+            <p class="error" th:if="${param.error == 'senha'}">senha incorreta</p>
+
+            <button type="submit">Entrar</button>
+            <a href="#" class="forgot">Esqueceu a senha?</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
